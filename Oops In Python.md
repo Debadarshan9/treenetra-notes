@@ -189,3 +189,62 @@ del self.variable_name
 ```python
 del object_reference.variable_name
 ```
+
+# Date: 5-August-2026
+
+### **Static Variable or Class Variable**
+
+&rarr; If the value of a variable is not varied from object to object, these variables are declared within the class directly but outside of methods. Such type of variables are called static variable or class variable.
+
+&rarr; For total class only one copy of static variable will be created and shared by all object of that class.
+
+&rarr; We can access static variable either by `class name` or by `object reference` but recommended to use `class name`
+
+```python
+class Test:
+    x = 10 # Static Variable
+    def __init__(self,y):
+        self.y = y
+
+t1 = Test(20)
+print(t1.x) # 10, we can access static variable by using object referenece
+print(Test.x) # 10, we can access static variable by using class name
+t2 = Test(30)
+print(t2.x) # 10, we can access static variable by using object referenece
+print(Test.x) # 10, we can access static variable by using class name
+```
+
+### **Various cases to delcare static variable**
+
+&rarr; In general we can declare static variable `within the class` directly but `outside of any method`.
+
+&rarr; Inside the constructor by using `class name`.
+
+```python
+def __init__(self):
+    Test.z = 50
+```
+
+&rarr; Inside the instance method by using `class name`.
+
+```python
+def show(self):
+    Test.z = 50
+```
+
+&rarr; Inside the class method by using either `class name` or `class variable`.
+
+```python
+@classmethod
+def show(cls):
+    Test.z = 50
+    cls.a = 50
+```
+
+&rarr; Inside static method by using `class name`
+
+```python
+@staticmethod
+def show():
+    Test.b = 50
+```
