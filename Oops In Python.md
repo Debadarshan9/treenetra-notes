@@ -248,3 +248,77 @@ def show(cls):
 def show():
     Test.b = 50
 ```
+
+# Date: 6-August-2026
+
+### **How to access Static Variable**
+
+&rarr; Inside the constructor by using either `self` or `class name`
+
+```python
+x = 10
+def __init__(self):
+    print(self.x) # 10
+    print(Test.x) # 10
+```
+
+&rarr; Inside the instance method by using `self` or `class name`
+
+```python
+def show(self):
+    print(self.x) # 10
+    print(Test.x) # 10
+```
+
+&rarr; Inside the class method by using `class variable` or `class name`
+
+```python
+@classmethod
+def cm(cls):
+    print(cls.x) # 10
+    print(Test.x) # 10
+```
+
+&rarr; Inside the staic method by using `class name`
+
+```python
+@staticmethod
+def sm():
+    print(Test.x) # 10
+```
+
+&rarr; From outside of class by using `object reference` or `class name`
+
+```python
+t1 = Test()
+print(t1.x) # 10
+print(Test.x) # 10
+```
+
+### **Where we can modify the static variable**
+
+&rarr; Anywhere either within the class or outside of class we can modify by using `class name`
+
+&rarr; But inside the classmethod by using `class variable`
+
+```python
+@classmethod
+def show(cls):
+    cls.x = 50 # By using class variable we can modify static variable
+```
+
+**_Note: If we change the value of static variable by using either `self` or `object reference` variable then the value of static variable won't be change, just a new instance variable with that name will be added to that particular object._**
+
+### **How to delete a static variable of a class**
+
+&rarr; We can delete static variable from anywhere by using `del` keyword
+
+```python
+del class_name.variable_name
+```
+
+&rarr; But inside the class method we can delete by using `class variable`
+
+```python
+del cls.variable_name
+```
