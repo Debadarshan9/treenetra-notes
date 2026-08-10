@@ -457,3 +457,105 @@ a1 = Animal()
 a1.walk("Tiger")
 Animal.walk("Tiger")
 ```
+
+# Date: 10-August-2026
+
+### **Static Method**
+
+&rarr; In generally these methods are general utility methods.
+
+&rarr; Inside these methods we won't use `instance` or `class variables`.
+
+&rarr; Here we don't provide `self` or `cls` argument at the time of declaration.
+
+&rarr; We can declare static method explicitily by using `@staticmethod` decorator.
+
+&rarr; We can access static method by using `class name` or `object reference`
+
+**Example**
+
+```python
+class Math:
+    @staticmethod
+    def add(x, y):
+        return x + y
+
+    @staticmethod
+    def average(a, b):
+        return Math.add(a, b) / 2
+
+m1 = Math()
+print(m1.average(2, 4)) # 3.0
+print(Math.average(5, 6)) # 5.5
+```
+
+### **Inner classes**
+
+&rarr; Sometimes we can declare `a class inside another class`, such type of classes are called inner classes.
+
+&rarr; Without existing one type of object if there is no chance of existing another type of object then we should go for inner classes.
+
+**_Note: Without existing outer class object there is no chance of existing inner class object. Hence inner class object is always associated with outer class object._**
+
+**Example**
+
+```python
+class Outer:
+    def __init__(self):
+        print("Outer class constructor")
+
+    class Inner:
+        def __init__(self):
+            print("Inner clas constructor")
+        def m1(self):
+            print("Inner class method")
+
+o1 = Outer() # Outer class constructor
+i1 = o1.Inner() # Inner class constructor
+i1.m1() # Inner class method
+```
+
+In Oops concept there are 4 pillars
+
+1. Encapsulation
+2. Inheritance
+3. Polymorphism
+4. Abstraction
+
+### **Encapsulation**
+
+&rarr; Encapsulation is about protecting data inside a class.
+
+&rarr; It means keeping data (properties) and methods together in a class, while controlling how the data can be accessed from outside the class.
+
+### **Why we use encapsulation ?**
+
+&rarr; **Data protection:** It prevents accidental modification of data.
+
+&rarr; **Validation:** You can validate data before settings.
+
+&rarr; **Flexibility:** Interal implementation can change without affecting external code.
+
+&rarr; **Control:** You have full control over how data is accessed and modified.
+
+&rarr; **Private:** In python you can make properties and methods privately by using `__` (double underscore)
+
+&rarr; **Protected:** In python you can make properties and methods protected by using `_` (single underscore)
+
+**_Note: Private property can't be accessed directly from outside of the class_**
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age
+
+
+p1 = Person("Deba", 24)
+print(p1.name) # Deba
+print(p1.__age) # Error: Person has no attribute "__age"
+```
+
+### **Accessing private property**
+
+&rarr; To accessing a private property we should use getter method
