@@ -322,3 +322,138 @@ del class_name.variable_name
 ```python
 del cls.variable_name
 ```
+
+# Date: 7-August-2026
+
+### **Local Variable**
+
+&rarr; Sometimes to meet temprary requirement of programer we can declare variables inside a method directly. Such type of variables are called local variable or temporary variable.
+
+&rarr; Local variable will be created at the time of `method execution` and destroyed once method completes.
+
+&rarr; Local variable of a method can't be accessed from outside of method.
+
+```python
+def func1(self):
+    a = 10 # a is the local variable and can be accessed only inside this function
+    print(a)
+```
+
+### **Instance Method**
+
+&rarr; Inside method implementation if we are using instance variables then such type of methods are called instance method.
+
+&rarr; Inside instance method declaration we have to pass `self` variable.
+
+&rarr; By using self variable inside the methods we can able to access instance variable.
+
+&rarr; Within the class we can call instance method by using `self` variable and from outside of the class we can call by using `object referenece`.
+
+```python
+class Test:
+    def __init__(self,name,marks):
+        self.name = name
+        self.marks = marks
+
+    def grade(self):
+        if self.marks >= 40:
+            return "D"
+        elif self.marks >= 60:
+            return "C"
+        elif self.marks >= 70:
+            return "B"
+        elif self.marks >= 80:
+            return "A"
+        elif self.marks >= 90:
+            return "O"
+        else:
+            return "Fail"
+
+    def show(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.marks}")
+        print(f"Grade: {self.grade()}")
+t1 = Test("Deba",60)
+t1.show()
+```
+
+### **Setter & Getter Method**
+
+We can set and get the value of instance variable by using `getter` & `setter` method.
+
+### **Setter**
+
+&rarr; Setter method can be used to set value to instance variables
+
+&rarr; Setter method is also known as `mutator method`
+
+**Syntax**
+
+```python
+def setVariable(self,variable):
+    self.variable=variable
+```
+
+### **Getter**
+
+&rarr; Getter method can be used to get value of the instace variable
+
+&rarr; Getter method is also known as `acessor method`
+
+**Syntax**
+
+```python
+def getVariable(self):
+    return self.variable
+```
+
+**Example**
+
+```python
+class Student:
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        return self.name
+
+    def setMarks(self, marks):
+        self.marks = marks
+
+    def getMarks(self):
+        return self.marks
+
+
+n = int(input("Enter the number of students: "))
+for i in range(n):
+    s = Student()
+    name = input("Enter your name: ")
+    s.setName(name)
+    marks = int(input("Enter your marks: "))
+    s.setMarks(marks)
+    print(f"Hii, {s.getName()}")
+    print(f"Your marks are: {s.getMarks()}")
+```
+
+### **Class Method**
+
+&rarr; Inside method implementation if we are using only `class variable (static variable)`, then such type of methods we should declare as class method.
+
+&rarr; We can declare class method explicitily by using `@classmethod` decorator.
+
+&rarr; For class method we should provide `cls` variable at the time of declaration.
+
+&rarr; We can call class method by using `class name` or `object referenece`
+
+```python
+class Animal:
+    legs = 4
+
+    @classmethod
+    def walk(cls,name):
+        print("{} walks with {} legs".format(name,cls.legs))
+
+a1 = Animal()
+a1.walk("Tiger")
+Animal.walk("Tiger")
+```
