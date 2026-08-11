@@ -559,3 +559,123 @@ print(p1.__age) # Error: Person has no attribute "__age"
 ### **Accessing private property**
 
 &rarr; To accessing a private property we should use getter method
+
+# Date: 11-August-2026
+
+### **Protected**
+
+&rarr; Protecetd may lose
+
+&rarr; There are not strictly private but should be treated as internal
+
+```python
+class Employee:
+    def __init__(self, name, age):
+        self.name = name
+        self._age = age
+
+    def showAge(self):
+        print("Age is:", self._age)
+
+
+emp2 = Employee("Deba", 25)
+emp2.showAge() # 25
+```
+
+```python
+class Employee:
+    def __init__(self,name,age):
+        self.name = name
+        self._age = age
+
+class SubEmployee(Employee):
+    def show_age(self):
+        print("Age is:",self._age)
+
+
+emp2 = SubEmployee("Deba",23)
+emp2.show_age() # 23
+```
+
+### **Private**
+
+&rarr; Private variables and methods that can't be access directly from outside the class.
+
+&rarr; There are used to restrict access and protect internal data.
+
+```python
+class BankAccount:
+    def __init__(self):
+        self.balance = 1000
+
+    def _show_balance(self):
+        print("Balance is:", self.balance)
+
+    def __update_balance(self, amount):
+        self.balance += amount
+
+    def deposite(self, amount):
+        if amount > 0:
+            self.__update_balance(amount)
+            self._show_balance()
+        else:
+            print("Invalid Deposite Amount")
+
+
+bank1 = BankAccount()
+bank1.deposite(2000) # Balance is: 3000
+```
+
+### **Protected vs Private**
+
+| Proteted                                                  | Private                                   |
+| --------------------------------------------------------- | ----------------------------------------- |
+| It is written by single underscore (`_`)                  | It is written by double underscore (`__`) |
+| It means internal or protected member                     | It is totally provate member              |
+| In the same class we can access                           | In the same class we can access           |
+| In child class it can be accessible directly              | It can't be accessible directly           |
+| Outside the class it technically accessible               | Outside the class it can't be accessible  |
+| It indicates that member is for internal or inherited use | It prevent accidental directly access     |
+
+### **Inheritance**
+
+&rarr; Inheritance is a fundamental concept in oops that allows a child class to inherit attributes and methods from another class (parent class).
+
+**syntax**
+
+```python
+class ParentClass:
+    pass
+class ChildClass(ParentClass):
+    pass
+```
+
+**Example**
+
+```python
+class Animal:
+    def __init__(self,name):
+        self.name = name
+
+    def info(self):
+        print("Animal name:",self.name)
+
+
+class Dog(Animal):
+    def sound(self):
+        print(self.name,"Bark")
+
+d1 = Dog("Jacky")
+d1.info()
+d1.sound()
+```
+
+### **Advantages of Inheritance**
+
+&rarr; Code reusability
+
+&rarr; Real world hierachy
+
+&rarr; Avoid code duplication
+
+&rarr; Extend existing functionality
