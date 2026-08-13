@@ -34,7 +34,7 @@ A database is an organised collection of data that allows us to store, manage, r
 
 ### **2. Non-relational DBMS**
 
-&rarr; It doesn't store the data in table format but it store the data as `documents` or `key-value pairs`;
+&rarr; It doesn't store the data in table format but it store the data as `documents` or `key-value pairs`.
 
 &rarr; Ex: MonogoDB
 
@@ -62,7 +62,7 @@ A database is an organised collection of data that allows us to store, manage, r
 
 ### **char vs varchar**
 
-| char                         | varcahr                         |
+| char                         | varchar                         |
 | ---------------------------- | ------------------------------- |
 | Fixed length                 | Variable length                 |
 | Always reserve define length | Uses space based on actual data |
