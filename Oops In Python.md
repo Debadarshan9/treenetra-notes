@@ -679,3 +679,136 @@ d1.sound()
 &rarr; Avoid code duplication
 
 &rarr; Extend existing functionality
+
+# Date: 12-August-2026
+
+## **Types of Inheritance**
+
+### **1. Single Inheritance**
+
+&rarr; Single inheritance is a type of inheritance where one child class inherts properties and methods from one parent class.
+
+**Example**
+
+```python
+class Car:
+    def __init__(self,model,year):
+        self.model = model
+        self.year = year
+
+    def display(self):
+        print(f"Car {self.model} is lanunched in {self.year}")
+
+class SportsCar(Car):
+    def show(self):
+        print("It is a sports car")
+
+s = SportsCar("BMW", 1980)
+s.display() # BMW is launched in 1980
+s.show() # It is a sports car
+```
+
+### **Where we use single inheritance**
+
+&rarr; When child class is a specialized version of parent class.
+
+### **2. Multiple Inheritance**
+
+&rarr; Multiple inhertance is a type of inheritance where `one child class` inherts properties and methods from `two or more parent classes`.
+
+```python
+class Test1:
+    def show(self):
+        print("Test1 class method.")
+
+class Test2:
+    def display(self):
+        print("Test2 class method.")
+
+class Test3(Test1, Test2):
+    def info(self):
+        print("Child class method.")
+
+t1 = Test3()
+t1.show() # Test1 method is inherited
+t1.display() # test2 method is inherted
+t1.info()
+```
+
+### **3. Multi level Inhertance**
+
+&rarr; Multi level inhertance is a type of inhertance where a class inherited from another derived class forming an inheritance chain.
+
+```python
+class GrandParent:
+    def land(self):
+        print("Have land")
+
+class Parent(GrandParent):
+    def house(self):
+        print("Have house")
+
+class Child(Parent):
+    def car(self):
+        print("Have car")
+
+c1 = Child()
+c1.land() # This method is inherted from Grandparent
+c1.house() # This method is inherted from Parent
+c1.land()
+```
+
+### **4. Hierarchy Inheritance**
+
+&rarr; Hierarchical inhertance is a type of inhertance where multiple child class inherits from the same parent class.
+
+```python
+class Vehicle:
+    def start(self):
+        print("Vehicle started")
+
+class Car(Vehicle):
+    def drive(self):
+        print("Car driving")
+
+class Bike(Vehicle):
+    def ride(self):
+        print("Bike riding")
+
+b1 = Bike()
+c1 = Car()
+
+b1.start() # Bike class inherits from vehicle
+b1.ride()
+
+c1.start() # Car class inherits from vehicle
+c1.drive()
+```
+
+### **5. Hybrid Inhertance**
+
+&rarr; Hybrid inhertance is a type of inhertance where two or more type of inhertance are combined in a single class.
+
+```python
+class A:
+    def show(self):
+        print("A class")
+
+class B(A):
+    def show_b(self):
+        print("B class")
+
+class C(A):
+    def show_c(self):
+        print("C class")
+
+class D(B, C):
+    def show_d(self):
+        print("D class")
+
+d1 = D()
+d1.show()
+d1.show_b()
+d1.show_c()
+d1.show_d()
+```
