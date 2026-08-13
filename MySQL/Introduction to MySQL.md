@@ -74,3 +74,112 @@ A database is an organised collection of data that allows us to store, manage, r
 &rarr; It is used to store data & time.
 
 &rarr; `date`, `time`, `datetime`, `timestap`, `year`
+
+# Date: 13-August-2026
+
+### **DDL Command**
+
+&rarr; It is known as Data Definition Language.
+
+&rarr; It defines or changes the structure of database objects.
+
+&rarr; `create`, `alter`, `drop`, `truncate` are some DDl commands.
+
+### **Drop vs Truncate**
+
+| DROP                                            | TRUNCATE                                                         |
+| ----------------------------------------------- | ---------------------------------------------------------------- |
+| It removes the entire table (structuare + data) | It removes all rows from the table but keeps the table structure |
+| Table structure deleted                         | Table structure remains same                                     |
+| It is slower than truncate                      | It is fast                                                       |
+
+### **DML Command**
+
+&rarr; It is known as Data Manipulation Language.
+
+&rarr; It deals with the data of the table.
+
+&rarr; It is used to insert, modify and delete data.
+
+&rarr; `insert`, `delete`, `update` are some DML commands.
+
+| Drop                           | Truncate                     | Delete                       |
+| ------------------------------ | ---------------------------- | ---------------------------- |
+| Drop is a DDL command          | Truncate is a DDL command    | Delete is DML command        |
+| All data deleted               | All data deleted             | Specific data deleted        |
+| It removes the table structure | It does not remove structure | Is does not remove structure |
+| Where clause is not used       | Where caluse is not used     | Where clause is used used    |
+| Rollback is not possible       | Rollback is not possible     | Rollback is possible         |
+
+### **DCL Command**
+
+&rarr; It is known as Data Control Language.
+
+&rarr; It controls user access and permissions.
+
+&rarr; `grant`, `revoke` are some DCL commands.
+
+### **TCL Command**
+
+&rarr; It is known as Transaction Control Language.
+
+&rarr; It is used to manage the changes made by the DML commands.
+
+&rarr; commit, rollback, savepoint,
+
+**commit**
+
+Permanetly save the changes made in the current transaction.
+
+**rollback**
+
+&rarr; It cancels the changes made in the current transaction since the last commit or transaction start.
+
+&rarr; After commit rollback is not possible.
+
+**savepoint:**
+
+&rarr; It creates a checkpoint inside a transaction.
+
+&rarr; We can rollback to that particular point without undoing the entire transaction.
+
+```sql
+create database AT26;
+use AT26;
+
+-- DDL Command (CREATE)
+create table student(
+    id int,
+    name varchar(10),
+    age int,
+    course varchar(30)
+);
+desc student;
+select * from student;
+
+-- DML Command (INSERT)
+insert into student values
+(1,"Dibya",27,'Python'),
+(2,"Rkesh",26,'SQL'),
+(3,"Ajay",30,'AI');
+
+-- DML Command (UPDATE)
+set sql_safe_updates=0;
+update student set course = 'Playwright' where id=2;
+
+-- DML Command (DELETE)
+delete from student where id=3;
+
+-- DDL Command (ALTER)
+alter table student add email varchar(10); -- add a col
+alter table student drop column email; -- remove a col
+alter table student rename column name to first_name; -- rename a col
+alter table student modify first_name varchar(30);  -- modify data type
+
+-- DDL Command (TRUNCATE)
+truncate table student;
+select * from student;
+
+-- DDL Command (DROP)
+drop table student;
+```
