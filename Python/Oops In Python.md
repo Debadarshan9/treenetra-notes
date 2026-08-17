@@ -812,3 +812,110 @@ d1.show_b()
 d1.show_c()
 d1.show_d()
 ```
+
+# Date: 17-August-2026
+
+### **super()**
+
+&rarr; It is a built in function in python that is used to access the parent class methods and constructor from the child class.
+
+```python
+class Parent:
+    def __init__(self):
+        print("Parent class constructor")
+
+    def show(self):
+        print("Parent class method")
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__() # Here we can call the constructor of parent class
+        print("Child class constructor")
+
+    def display(self):
+        print("Child clas method")
+
+c = Child() # First parent class constructor will run then child class constructor will run
+c.show()
+```
+
+### **Why we use super()**
+
+&rarr; To reuse the parent class code.
+
+&rarr; To avoid duplicate code.
+
+&rarr; To call the parent class constructor.
+
+### **MRO - Method Resolution Order**
+
+&rarr; MRO is the `order` in which python searches for a method or attribute in a class `hierarchy`.
+
+```python
+class A:
+    def show(self):
+        print("A class")
+
+class B(A):
+    def show(self):
+        print("B class")
+
+class C(A):
+    def show(self):
+        print("C class")
+
+class D(B, C):
+    def show(self):
+        print("D class")
+
+d1 = D()
+print(D.mro()) # D --> B --> C --> A
+```
+
+### **Polymorphism**
+
+&rarr; Polymorphism means `many form`.
+
+&rarr; In python polymorphism allows the same method, function or operator to behave differently depending on the object or data it is working with.
+
+### **Method Overriding**
+
+&rarr; Method overriding occures when a child class provids its own implementation of a method that is already defined in its parent class.
+
+&rarr; In happens when same method exists in parent class and child class, but the child class provides its own implementation of that method.
+
+```python
+class Animal:
+    def sound(self):
+        print("Animal makes sound.")
+
+class Dog(Animal):
+    def sound(self):
+        print("Vooo")
+
+class Cat(Animal):
+    def sound(self):
+        print("Miewwww")
+
+d = Dog()
+d.sound() # Vooo
+c = Cat()
+c.sound() # Miewwww
+```
+
+### **Method Overloading**
+
+&rarr; Method overloading means having `multiple methods` with `same name` with `different number or types of parameters`, so the method can perform different operation depending on the argument provided.
+
+&rarr; In Python, this is generally achieved using `default arguments`, `*args`, or similar techniques.
+
+```python
+class FoodOrder:
+    def calculate_bill(self, price, delivery=0, discount=0):
+        return price + delivery - discount
+
+f = FoodOrder()
+print(f.calculate_bill(500)) # 500
+print(f.calculate_bill(500, 50)) # 550
+print(f.calculate_bill(500, 50, 100)) # 450
+```

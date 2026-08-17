@@ -183,3 +183,61 @@ select * from student;
 -- DDL Command (DROP)
 drop table student;
 ```
+
+# Date: 17-August-2026
+
+### **What is constraint ?**
+
+&rarr; Constraints are the rules applied to table columns to control the type of data stored in that column.
+
+**1. NOT NULL**
+
+&rarr; It ensures that a column must have a value.
+
+&rarr; It can't contain `null`.
+
+**2. UNIQUE**
+
+&rarr; It ensures that duplicate values are not allowed in a column.
+
+**3. PRIMARY KEY**
+
+&rarr; A constraint that uniquely identifies that each record in a table.
+
+&rarr; It can't contain `null` or `duplicate value`.
+
+**4. FOREIGN KEY**
+
+&rarr; A constraint used to create a relation between 2 tables.
+
+&rarr; It references a primary key in another table.
+
+**5. CHECK**
+
+&rarr; It ensures that the value entered satisfies a specified condition.
+
+**6. DEFAULT**
+
+&rarr; It automatically provies a default value when no value is supplied during insertion.
+
+| PRIAMRY KEY                                | UNIQUE                                        | FOREIGN KEY                           |
+| ------------------------------------------ | --------------------------------------------- | ------------------------------------- |
+| Uniquely identifies each record in a table | Ensures values in a column are not duplicated | Creates relationship between 2 tables |
+| Identifies a row                           | Prevents duplicate data                       | Maintains relationship between tables |
+| Duplicate values are not allowed           | Duplicate values are not allowed              | Duplicate values are allowed          |
+| Null values are not allowed                | Null Values are allowed                       | Null values are allowed               |
+| Only one per table                         | Multiple per table                            | Multiple per table                    |
+
+```SQL
+create table emp(
+    emp_id int primary key,
+    emp_name varchar(30) not null,
+    email varchar(40) unique ,
+    age int check (age >= 18),
+    city varchar(50) default "BBSR"
+);
+
+insert into emp values(1,"Debadarshan","deba@hebbale.ai",24,default);
+
+insert into emp values(2,"Ekita",null,23,default);
+```
