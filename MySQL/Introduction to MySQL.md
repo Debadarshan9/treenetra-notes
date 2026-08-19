@@ -241,3 +241,182 @@ insert into emp values(1,"Debadarshan","deba@hebbale.ai",24,default);
 
 insert into emp values(2,"Ekita",null,23,default);
 ```
+
+# Date: 18-August-2026
+
+### **Aggregate Function**
+
+An aggregate function performs a calculation for multiple rows and returns one result.
+
+**1. COUNT()**
+
+It returns the number of rows in a column
+
+**Types**
+
+count(column_name) &rarr; It will not count `null` values.
+
+count(\*) &rarr; It will count `all` (includes null) values.
+
+count(distinct_column_name) &rarr; Provides `unique` value.
+
+**2. SUM()**
+
+It returns the total values in a column, It ignores null value.
+
+**3. AVG()**
+
+It returns the average of numeric values, it ignores null value.
+
+**4. MAX()**
+
+It returns the highest value from a column(string,numeric,date), it ignores null value.
+
+**5. MIN()**
+
+It returns the lowest value from a column(string,numeric,date), it ignores null value.
+
+```sql
+create table test_emp(
+emp_id int primary key,
+emp_name varchar(30),
+department varchar(20),
+salary int,
+bonous int
+);
+
+insert into test_emp values
+(101,"Dibya","Testing",40000,5000),
+(102,"Rahul","Testing",50000,6000),
+(103,"Anita","Development",60000,7000),
+(104,"Suman","Development",50000,null),
+(105,"Priya","Testing",null,4000);
+
+select * from test_emp;
+
+-- Find the total number of employees
+select count(*) from test_emp;
+
+-- Count employees who have a salary
+select count(salary) from test_emp;
+
+-- Find the number of different department
+select count(distinct department) from test_emp;
+
+-- Find the total salary of all employee
+select sum(salary) from test_emp;
+
+-- Find the total bonous
+select sum(bonous) from test_emp;
+
+-- Find the average salary
+select avg(salary) from test_emp;
+
+-- Find the highest salary
+select max(salary) from test_emp;
+
+-- Find the lowest salary
+select min(salary) from test_emp;
+```
+
+# Date: 19-August-2026
+
+### **What is caluse ?**
+
+A clause is a part of sql statement that tells the databse what data we want and how we want to filter, group, sort or limit it.
+
+**1. SELECT**
+
+It sprecifies which columns or data we want to retrive.
+
+**2. FROM**
+
+It specifies which table we want to retreive data from.
+
+**3. WHERE**
+
+It filters individual rows based on a condition.
+
+**4. ORDER BY**
+
+It sorts the result in ascending(asc) o descending(desc) order.
+
+**5. GROUP BY**
+
+It groups rows having the same value, usually for aggregate calculations.
+
+**6. DISTINCT**
+
+It removes the duplicate values from the result.
+
+**7. HAVING**
+
+It filters groups after group by clause.
+
+**8. JOIN**
+
+It combines data from two or more tables based on a related column.
+
+**9. LIMIT**
+
+It restricts the no. of rows return.
+
+**10. OFFSET**
+
+It tells sql how many rows to skip before returing the result.
+
+| WHERE                                             | HAVING                         |
+| ------------------------------------------------- | ------------------------------ |
+| Filters individual rows                           | Filters groups                 |
+| It applied before grouping                        | It applied after grouping      |
+| It can't directly filter with aggregate functions | It can use aggregate functions |
+
+```sql
+create table department(
+dept_id int primary key,
+dept_name varchar(30),
+location varchar(20),
+employee int,
+budget int
+);
+
+insert into department values
+(1,"Testing","BBSR",25,500000),
+(2,"Development","HYD",40,800000),
+(3,"HR","BBSR",10,300000),
+(4,"Testing","HYD",30,500000),
+(5,"Development","Pune",35,700000),
+(6,"Support","Delhi",15,400000);
+
+select * from department;
+
+select dept_name, location from department;
+
+-- Department having more that 20 employees
+select dept_name from department where employee > 20;
+
+-- Department in desc order of employees
+select * from department order by dept_name asc;
+
+-- Unique department name
+select distinct dept_name from department;
+
+-- Find the no. of department in each location
+select location, count(*) as dept_count
+from department
+group by location;
+
+-- Find locations having more than 1 department
+select location, count(*) as count_dept
+from department
+group by location
+having count_dept > 1;
+
+-- Find the departments where the location is BBSR
+select dept_name
+from department
+where location = "BBSR";
+
+-- Display only the first 3 departments
+select * from department limit 3 offset 3;
+```
