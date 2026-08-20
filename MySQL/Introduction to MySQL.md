@@ -420,3 +420,81 @@ where location = "BBSR";
 -- Display only the first 3 departments
 select * from department limit 3 offset 3;
 ```
+
+# Date: 20-August-2026
+
+### **What is operator ?**
+
+Operators are symbols or keywords used to perform calculations or compare or filter data.
+
+#### **1. Arithmetic Operator**
+
+&rarr; It is used to to perform mathematical calculations on numeric values.
+
+&rarr; Ex: +, -, \*, /, %
+
+#### **2. Logical operator**
+
+&rarr; It is used to combine multiple conditions.
+
+&rarr; Ex: and, or, not
+
+**AND** &rarr; All conditions must be true
+
+**OR** &rarr; At least one condition must be true
+
+**NOT** &rarr; Reverse the condition
+
+#### **3. Comparision Operator**
+
+&rarr; Used to compare 2 values and return a true or false condition.
+
+&rarr; Ex: =, != or <>, <,>,<=,>=
+
+#### **4. Special Opearotor**
+
+These are commonly used for filtering specific range, patterns or list of values.
+
+**BETWEEN** &rarr; It checks whether the value falls within a specifed range, including the boundary value.
+
+**LIKE** &rarr; It is used to search for a specific pattern in the text.
+
+1. % &rarr; Any number of characters
+
+2. \_ &rarr; Exactly one character
+
+**IN** &rarr; It checks whether a value matches any value in a specified list.
+
+```sql
+create table product(
+prod_id int primary key,
+prod_name varchar(50),
+category varchar(30),
+price decimal(10,2),
+quantity int,
+city varchar(30)
+);
+
+select * from product where category = "Electronics" and price > 10000;
+
+-- Find products located in Bhubaneswar or Delhi.
+select * from product where city in ("Bhubaneswar","Delhi");
+
+-- Find products that are not in the Electronics category.
+select * from product where category != "Electronics";
+
+-- Find products whose price is between ₹5,000 and ₹15,000.
+select * from product where price between 5000 and 15000;
+
+-- Find products whose name starts with L.
+select * from product where prod_name like "L%";
+
+-- Find products whose name contains the letter o.
+select * from product where prod_name like "%o%";
+
+-- Find products belonging to either Electronics or Furniture.
+select * from product where category in ("Electronics","Furniture");
+
+-- Find products located in Bhubaneswar, Bangalore, or Pune.
+select * from product where city in ("Bhubaneswar","Bangalore", "Pune");
+```
