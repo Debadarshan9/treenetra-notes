@@ -498,3 +498,144 @@ select * from product where category in ("Electronics","Furniture");
 -- Find products located in Bhubaneswar, Bangalore, or Pune.
 select * from product where city in ("Bhubaneswar","Bangalore", "Pune");
 ```
+
+# Date: 21-August-2026
+
+### **JOIN**
+
+It is used to combine data from 2 or more table based on a related column.
+
+**1. INNER JOIN**
+
+It returns only the records those have `matching values` in both the tables.
+
+**Syntax**
+
+```sql
+SELECT t1.col_name t2.col_name
+from table1 t1
+inner join table2 t2
+on t1.common_col = t2.common_col;
+```
+
+**LEFT JOIN**
+
+&rarr; It returns `all` the record from the `left` table and `matching records` from `right` table.
+
+&rarr; If there is no match `null` is returned for the `right` table columns.
+
+**RIGHT JOIN**
+
+&rarr; It returns `all` the record from the `right` table and `matching records` from `left` table.
+
+&rarr; If there is no match `null` is returned for the `left` table columns.
+
+**FULL OUTER JOIN**
+
+&rarr; It returns `all` records from `both` tables.
+
+&rarr; Matching records are combined and `non matching` records contain `null`.
+
+**Syntax**
+
+```sql
+left join union right join
+```
+
+**CROSS JOIN**
+
+It returns `every possible combination` of rows from the each tables.
+
+**Syntax**
+
+```sql
+SELECT t1.col_name t2.col_name
+from table t1
+CROSS join table t2;
+```
+
+**SELF JOIN**
+
+&rarr; Self Join is when a table is joind with `itself`.
+
+&rarr; It is usefull when records in the same table have a `relationship` with each other.
+
+**Syntax**
+
+```sql
+SELECT t1.col_name t2.col_name
+from table1 t1
+join table2 t2
+on t1.common_col = t2.common_col;
+```
+
+# Date: 24-August-2026
+
+### **Subquery**
+
+&rarr; Subquery is a query written inside another query.
+
+&rarr; It is also called an inner query or nested query.
+
+**1. Single row subquery**
+
+&rarr; It returns only one row or value to the outer query
+
+&rarr; Comparison operator is used in this.
+
+```sql
+select emp_name,salary
+from empl
+where salary > (select avg(salary) from empl);
+```
+
+**2.Multiple Subquery**
+
+&rarr; It returns more than one row or value to outer query
+
+&rarr; We use operaors such as `in`, `any`, `all`
+
+**in** &rarr; It checks wheather the value matches any value in the returned list.
+
+**any** &rarr; At least one values reuturned by the subquery.
+
+**all** &rarr; Every value reuturned by the subquery.
+
+**3. Corelated Subquery**
+&rarr; It is a subquery that depends on the current row of outer query.
+
+&rarr; The inner query is logically evaluated for each row of the outer query.
+
+&rarr; We use operators such as `exist`, `not exist`.
+
+**exist** &rarr; It checks whether the subquery returns at least one row.
+
+**not exist** &rarr; It checks whether the subquery returns no rows.
+
+```sql
+-- 1. Find employees whose salary is greater than the avg salary of all employee
+select emp_name, salary from empl
+where salary > (select avg(salary) from empl);
+
+-- 2. Find the employees who has highest salary
+select emp_name, salary
+from empl
+where salary = (select max(salary) from empl);
+
+-- 3. Find employees who belongs to department that have more that one employee.
+
+select emp_name, dept_id
+from empl
+where dept_id in (select dept_id from empl group by dept_id having count(*) > 1);
+
+-- 4. Find employees who belongs to the Testing or Development departments
+select emp_name, dept_id
+from empl
+where dept_id
+in (select dept_id from department where dept_name in ("Testing","Development"));
+
+-- 5. Find employees whose salary is greater than the avg salary of there own department
+select e.emp_name,e.dept_id,e.salary
+from empl e
+where e.salary > (select avg(e2.salary) from empl e2 where e2.dept_id = e.dept_id);
+```

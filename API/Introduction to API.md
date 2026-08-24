@@ -72,7 +72,7 @@ There are 6 types of API
 
 5. GRDC API
 
-6. WebSocket API Hardware communication
+6. WebSocket API (Hardware communication)
 
 # Date:23-August-2026
 
@@ -88,10 +88,52 @@ There are 6 types of API
 
 ### **SOAP API**
 
-&rarr; SOAP is a protocol for exchange in structured message, SOAP message using XML and for security it uses WSGI.
+&rarr; SOAP is a protocol for exchange in structured message, SOAP message using `XML` and for security it uses `WSGI` or `WSDL`.
 
 &rarr; SOAP is secure than rest API but slower than it.
 
+# Date: 24-August-2026
+
 ### **HTTP**
 
-&rarr; HTTPS stands for Hyper Text Transfer Protocol and it is an application layer.
+&rarr; HTTPS stands for Hyper Text Transfer Protocol and it is an application layer, request and response protocol.
+
+&rarr; A client sends a request message and server sends a response message.
+
+&rarr; HTTP is stateless at the protocol interaction level, each request is interrupted at the information available in that request and relavant server side resoource state.
+
+## **HTTPS**
+
+&rarr; HTTPS is http carried over a `TLS` and `SSL` protected connection.
+
+&rarr; TLS provides encryption intrangit, integrrative protection and server authentication through certificates.
+
+&rarr; It helps prevent external dropping and tampering between client and server.
+
+| http       | https                                     |
+| ---------- | ----------------------------------------- |
+| http://    | https://                                  |
+| 80         | 443                                       |
+| Plain Text | Message are encrypted after TLS handshake |
+
+### **Request and Response Life Cycle**
+
+1. The client constructs a URL, method, headers and optional body
+
+2. DNNS resolves the host name to an IP address.
+
+3. A network connection is established, For https a TLS handshake authenticates the server
+
+4. The request passes through components, such as CDN, loader balancer, reverse proxy or API gateway.
+
+5. The application authenticates, authorizes and validates the request.
+
+6. Basd on the business logic call the database, caches, queues, frontend and downstream API.
+
+7. The server builds the status code, headers and response body.
+
+8. The response returns through the network to the client
+
+9. The client parses the response and updates UI.
+
+**_NOTE: When an API fails locate the stages, DNS, TLS, gateway, auhentication, validation, databases, dependencies, serialization, status code all are the root cause._**
