@@ -137,3 +137,109 @@ There are 6 types of API
 9. The client parses the response and updates UI.
 
 **_NOTE: When an API fails locate the stages, DNS, TLS, gateway, auhentication, validation, databases, dependencies, serialization, status code all are the root cause._**
+
+# Date: 25-August-2026
+
+### **HTTP Methods - CRUD**
+
+**GET**
+
+GET method works like read. It will read specific data and all data and it fetchs data from API.
+
+**POST**
+
+Post method creates the data to a specific resource, often causing a change in server state for creating a new resource.
+
+**PUT (Update or replace)**
+
+&rarr; If the resource is present it will replace all current representations of the target resource with the uploaded request content.
+
+&rarr; If the resource is not present then it will create a new resource.
+
+**PATCH**
+
+Applies partial modification to a resource instead of replacing it entirely.
+
+**DELETE**
+
+Permanetly remove the specified resource from the server.
+
+### **Status Code**
+
+100 - continue
+
+102 - processing
+
+200 - ok
+
+201 - created
+
+202 - accepted
+
+204 - no content
+
+#### **Client Side Error (4xx)**
+
+&rarr; Problem with the request credential or permissions.
+
+#### **400 - Bad Request**
+
+&rarr; The server can't process the request because it is malformed or invalid.
+
+**Main cause of bad request**
+
+Malfromed json, missing mandatory field, wrong datatype, invalid query parameter.
+
+### **Authentication**
+
+&rarr; Authentication means verifies user identity.
+
+&rarr; It asks are you, who you claimed to be ?
+
+&rarr; It used credential like password, pin or biometrics.
+
+&rarr; It happens first in the security process.
+
+### **Authorization**
+
+&rarr; Determines access rights on permission.
+
+&rarr; It ask what resources can you access ?
+
+&rarr; Uses rules like user role or action levels.
+
+&rarr; It happens after successfull authentication.
+
+#### **401 - Unauthorized (Authentication)**
+
+The request doesn't contain valid authentication credentials, It means the user is not authenticated.
+
+**Cause for unauthorized**
+
+Missing token, invalid token, Expired token, invalid username or password.
+
+#### **403 - Forbidden (Authorization)**
+
+The client may be authenticated but they don't have permission to perform the requested action.
+
+**404 - Not Found**
+
+&rarr; The requested resource or endpoint was not found or unavailable.
+
+&rarr; The API may intensionaly return 404 to a protected resource existance.
+
+**Causes for not found**
+
+Resource id doesn't exist, incorrect endpoint path, resource was already deleted.
+
+**409 - Conflict**
+
+&rarr; The request conflicts with the resources current state or a uniqueness rule.
+
+**429 - Too many requests**
+
+&rarr; The client has exceed the server's request rate
+
+**cause for too many requests**
+
+An API permits 100 requests per minute but client sends 150

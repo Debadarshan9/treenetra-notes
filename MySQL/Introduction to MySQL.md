@@ -258,7 +258,7 @@ count(column_name) &rarr; It will not count `null` values.
 
 count(\*) &rarr; It will count `all` (includes null) values.
 
-count(distinct_column_name) &rarr; Provides `unique` value.
+count(DISTINCT column_name) &rarr; Provides `unique` value.
 
 **2. SUM()**
 
@@ -595,22 +595,23 @@ where salary > (select avg(salary) from empl);
 
 &rarr; We use operaors such as `in`, `any`, `all`
 
-**in** &rarr; It checks wheather the value matches any value in the returned list.
+**IN** &rarr; It checks wheather the value matches any value in the returned list.
 
-**any** &rarr; At least one values reuturned by the subquery.
+**ANY** &rarr; At least one values reuturned by the subquery.
 
-**all** &rarr; Every value reuturned by the subquery.
+**ALL** &rarr; Every value reuturned by the subquery.
 
 **3. Corelated Subquery**
+
 &rarr; It is a subquery that depends on the current row of outer query.
 
 &rarr; The inner query is logically evaluated for each row of the outer query.
 
 &rarr; We use operators such as `exist`, `not exist`.
 
-**exist** &rarr; It checks whether the subquery returns at least one row.
+**EXIST** &rarr; It checks whether the subquery returns at least one row.
 
-**not exist** &rarr; It checks whether the subquery returns no rows.
+**NOT EXIST** &rarr; It checks whether the subquery returns no rows.
 
 ```sql
 -- 1. Find employees whose salary is greater than the avg salary of all employee
@@ -639,3 +640,38 @@ select e.emp_name,e.dept_id,e.salary
 from empl e
 where e.salary > (select avg(e2.salary) from empl e2 where e2.dept_id = e.dept_id);
 ```
+
+# Date: 25-August-2026
+
+| Join                             | Subquery                                 |
+| -------------------------------- | ---------------------------------------- |
+| It combines from multiple tables | Query inside another query               |
+| Retrive related data             | Use result of one query in another query |
+| It is faster                     | It is slower                             |
+
+**_NOTE: Join is faster than subquery specially for retrive related data_**
+
+### **SET Operations**
+
+&rarr; Set operations are used to `combine` or `compare` the results of multiple queries.
+
+**1. UNION**
+
+&rarr; It combines the results of two or more `select queries` and `remove` the `duplicate` rows.
+
+**2. UNION ALL**
+&rarr; It combines the results of two or more `select queries` and `keeps` `duplicate` rows.
+
+| UNION                      | UNION ALL                    |
+| -------------------------- | ---------------------------- |
+| It remove duplicates       | It doesn't remove duplicates |
+| It doesn't keep duplicates | It keeps duplicates          |
+| It is slower               | It is faster                 |
+
+**3. IN - Intersect**
+
+&rarr; It checks whether a value matches any value in a given list or subquery result.
+
+**4. NOT IN - Except**
+
+It checks whether a value doesn't match any value in a given list or subquery result.
