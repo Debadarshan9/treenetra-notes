@@ -675,3 +675,48 @@ where e.salary > (select avg(e2.salary) from empl e2 where e2.dept_id = e.dept_i
 **4. NOT IN - Except**
 
 It checks whether a value doesn't match any value in a given list or subquery result.
+
+```sql
+create table emp1(
+emp_id int primary key,
+emp_name varchar(20),
+city varchar(10)
+);
+
+insert into emp1 values
+(1,"Dibya","BBSR"),
+(2,"Rahul","Bangalore"),
+(3,"Anita","Pune"),
+(4,"Suman","Delhi");
+
+create table customer(
+customer_id int primary key,
+customer_name varchar(20),
+city varchar(10)
+);
+
+insert into customer values
+(101,"Raj","Bangalore"),
+(102,"Priya","Mumbai"),
+(103,"Kiran","Pune"),
+(104,"Neha","Chennai");
+
+select city from emp1
+union
+select city from customer;
+
+-- Display all cities from both the tables, including duplicates
+select city from emp1
+union all
+select city from customer;
+
+-- Find empl who lives in a city that also exist in the customer table
+select emp_name, city
+from emp1
+where city in (select city from customer);
+
+-- Find emp whose city doesn't exist in the customer table
+select emp_name, city
+from emp1
+where city not in (select city from customer);
+```
