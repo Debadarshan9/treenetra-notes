@@ -243,3 +243,27 @@ Resource id doesn't exist, incorrect endpoint path, resource was already deleted
 **cause for too many requests**
 
 An API permits 100 requests per minute but client sends 150
+
+# Date: 26-August-2026
+
+### **Server Side Error (5xx)**
+
+#### **500 - Internal Server Error**
+
+The server encounters an unexpected condition while processing the request.
+
+#### **501 - Not Implemented**
+
+The server doesn't support the functionality required to process the request.
+
+#### **502 - Bad Gateway**
+
+A gateway or proxy receieved an invalid response from an offstream server.
+
+#### **503 - Service Unavailability**
+
+The server is temporarily unavailable to process the request.
+
+### **504 - Gateway Timeout**
+
+A gateway or proxy didn't receive a request from an offstream server within the allowed time.
