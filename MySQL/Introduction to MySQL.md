@@ -720,3 +720,68 @@ select emp_name, city
 from emp1
 where city not in (select city from customer);
 ```
+
+# Date: 26-August-2026
+
+### **Window Function**
+
+### **over()**
+
+&rarr; It perfroms a calculation across a set of related rows without combining those rows into one row.
+
+### **row_number()**
+
+&rarr; It assignes a unique sequential number to each row specified order.
+
+### **rank()**
+
+&rarr; It assignes the same rank to rows having the same value but skips the next rank after a tie.
+
+### **dense_rank()**
+
+&rarr; It also gives the same rank to tied values but doesn.t skip the next rank.
+
+```
+a - 1   1   1
+b - 2   2   2
+c - 3   2   2
+d - 4   2   2
+e - 5   5   3
+```
+
+### **lag()**
+
+&rarr; It retrives a value from a previous row.
+
+### **lead()**
+
+&rarr; It retrives a value from a next row.
+
+**_Note: Aggregate functions can be used as window function by adding over method._**
+
+```sql
+-- row_number()
+select emp_name, department,
+row_number() over(partition by department order by salary desc) as row_num
+from test_emp;
+
+-- rank()
+select emp_id, emp_name, department, salary,
+rank() over(partition by department order by salary desc) as salary_rank
+from test_emp;
+
+-- dens_rank()
+select emp_id, emp_name, department, salary,
+dense_rank() over(partition by department order by salary desc) as salary_rank
+from test_emp;
+
+-- lag()
+select emp_name, department, salary,
+lag(salary) over(partition by department order by emp_id) as previous_salary
+from test_emp;
+
+-- lead()
+select emp_name, department, salary,
+lead(salary) over(partition by department order by emp_id) as previous_salary
+from test_emp;
+```
