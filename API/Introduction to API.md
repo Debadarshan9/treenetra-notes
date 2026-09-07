@@ -222,7 +222,7 @@ Missing token, invalid token, Expired token, invalid username or password.
 
 The client may be authenticated but they don't have permission to perform the requested action.
 
-**404 - Not Found**
+#### **404 - Not Found**
 
 &rarr; The requested resource or endpoint was not found or unavailable.
 
@@ -232,11 +232,11 @@ The client may be authenticated but they don't have permission to perform the re
 
 Resource id doesn't exist, incorrect endpoint path, resource was already deleted.
 
-**409 - Conflict**
+#### **409 - Conflict**
 
 &rarr; The request conflicts with the resources current state or a uniqueness rule.
 
-**429 - Too many requests**
+#### **429 - Too many requests**
 
 &rarr; The client has exceed the server's request rate
 

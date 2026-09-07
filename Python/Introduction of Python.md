@@ -1547,3 +1547,147 @@ with open("filename","mode") as file:
 &rarr;If we forgot `file.close()` the file remains open
 
 &rarr;Python closes the file automatically by using `with`
+
+# Date: 27-August-2026
+
+### **What is `re` ? (Regular Expression)**
+
+&rarr; The `re` module is a built-in python module used to search, max, extract, split and replace text based on patterns.
+
+```python
+import re
+```
+
+**Patterns**
+
+```
+\d+ - numbers
+[A-Za-z] - alphabets both upper and lower
+\w+ - Word character
+\s+ - white space
+[0-9] - number from 0 to 9
+```
+
+### **Functions in `re`**
+
+```python
+re.search()
+re.match()
+re.fullmatch()
+re.findall()
+re.split()
+re.sub()
+re.subn()
+re.esape()
+```
+
+**re.search()**
+
+&rarr; It returns the entire string and returns the 1st matching occurance.
+
+```python
+text = "I am learning Python"
+result = re.search(r"python",text)
+print(result.group())
+```
+
+&rarr; To find the exact text we use `group()`
+
+**re.match()**
+
+&rarr; It checks for a match only at the begininig of the string.
+
+```python
+text = "I am learning Python"
+result = re.match(r"I",text)
+print(result.group())
+
+```
+
+**re.fullmatch()**
+
+&rarr; It checks whether the entire string matchs the pattern.
+
+```python
+text = "12345"
+result = re.fullmatch(r"\d+",text)
+print(result.group())
+```
+
+**re.findall()**
+
+It finds all occurance of a pattern and returns them as a list.
+
+```python
+import re
+text = "I have 20 apples and 10 bananas"
+result = re.findall(r"\d+",text)
+print(result)
+```
+
+**re.split()**
+
+It splits a string where the specifier regex pattern matches.
+
+```python
+import re
+text = "py,java,c;ruby"
+result = re.split(r"[,]",text)
+print(result)
+```
+
+**re.sub()**
+
+It replaces text that matches a pattern with another value.
+
+```python
+import re
+text = "python is easy"
+result = re.sub(r"python","java",text)
+print(result)
+```
+
+**re.subn()**
+
+`subn()` works like `sub()` but it also tells how many replacement were made in tuple.
+
+```python
+import re
+text = "python is easy and python is open source"
+result = re.subn(r"python","java",text)
+print(result)
+```
+
+### **sys**
+
+The `sys` module is a built in python module that provides access to variables and functions related to the python interpreter and the runtime environment.
+
+### **Why we use `sys`**
+
+&rarr; Get python version
+
+&rarr; Get command line argument
+
+&rarr; Exit a program
+
+&rarr; Access the module search path
+
+&rarr; Get platform information
+
+&rarr; Read standard input/output/error
+
+### **OS**
+
+The `os` module is a built in python module that provides function to interact with the operating system.
+
+### **Why we use os module**
+
+&rarr; Work with file path
+
+&rarr; Get the current directory
+
+&rarr; Create folder
+
+&rarr; Change directory
+
+&rarr; Rename file or folder

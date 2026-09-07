@@ -919,3 +919,93 @@ print(f.calculate_bill(500)) # 500
 print(f.calculate_bill(500, 50)) # 550
 print(f.calculate_bill(500, 50, 100)) # 450
 ```
+
+# Date: 18-August-2026
+
+### **Abstraction**
+
+&rarr; Abstraction is the process of hiding internal implementation details and showing only the essential feature or functionality to the user.
+
+&rarr; Python provides abstraction mainly using the `ABC` module.
+
+```python
+from abc import ABC,abstarct method
+```
+
+&rarr; We can create an abstract class using ABC and define abstract method using decorator `@abstractmethod`
+
+### **why we use abstraction?**
+
+&rarr; Hide implementation details.
+&rarr; show only necessary functionality.
+&rarr; Defines a common structure for child class.
+&rarr; Host to child class to implement required methods.
+
+```python
+from abc import ABC,abstractmethod
+class Animal(ABC):
+  @abstractmethod
+  def sound(self):
+    pass
+
+class Dog(Animal):
+  def sound(self):
+    print("Dog Barks")
+
+puppy=Dog()
+puppy.sound()
+```
+
+```python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+  @abstractmethod
+  def start(self):
+    pass
+
+class Car(Vehicle):
+  def start(self):
+    print("Car Started")
+
+class Bike(Vehicle):
+  def start(self):
+    print("Bike Started")
+
+tata=Car()
+tata.start()
+yamaha=Bike()
+yamaha.start()
+```
+
+```python
+from abc import ABC, abstractmethod
+
+class Payment(ABC):
+  @abstractmethod
+  def pay(self,amount):
+    pass
+
+  def receipt(self):
+    print("Payment receipt")
+
+class UPIPayment(Payment):
+  def pay(self, amount):
+    print(f"Payment of {amount} done through UPI")
+  def receipt(self):
+    print(f"Upi Payment receipt generated")
+
+class CardPayment(Payment):
+  def pay(self, amount):
+    print(f"Payment of {amount} done through Card")
+  def receipt(self):
+    print(f"cardpayment receipt generated ")
+
+
+phonepay=UPIPayment()
+phonepay.pay(5000)
+phonepay.receipt()
+sbicard=CardPayment()
+sbicard.pay(10000)
+sbicard.receipt()
+```
