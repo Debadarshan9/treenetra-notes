@@ -76,7 +76,7 @@
 
 &rarr; We can't use reserved keyword as identifier
 
-### **Reserved Keyword**
+### **Reserved Keyword (35)**
 
 In python some words are resorved to represent some meaning or functionality, such type of words are called reserved words.
 
