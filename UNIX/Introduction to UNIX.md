@@ -64,7 +64,7 @@ It is a software created computer that runs on a physical computer or server.
 
 ### **Shell**
 
-&rarr; It is a program that asts as an interface between the user and OS.
+&rarr; It is a program that acts as an interface between the user and OS.
 
 &rarr; It accepts commands from the user, interprets them and asks OS to perform the requested operation.
 
@@ -104,7 +104,7 @@ It is the most commonly used shell on linux system.
 
 **`free or free -h`** &rarr; It shows RAM and swap memory usage
 
-**`df -h`** &rarr; It display available and used disk space
+**`df -h`** &rarr; It displays available and used disk space
 
 **`lsblk`** &rarr; It shows the information about block storage devices
 

@@ -84,10 +84,64 @@ Response
 | Developed by open-sources community       | Developed by microsoft               |
 | W3C architecture                          | Browser specific automation protocol |
 | Chrome, Edge, Firefox, Safari, IO         | Chromium, Firefox and webkit         |
-| Supports by java, pytho, c#, js, ruby     | ts, js, java, python, .net           |
+| Supports by java, python, c#, js, ruby    | ts, js, java, python, .net           |
 | Waits implicit, explicit, fluet           | Auto-wait                            |
 | Slower                                    | Faster                               |
 | Api test not possible                     | Api test possible (APICONTEXT)       |
 | Network injection possible, request setup | Directly possible                    |
 | No parallel testing                       | Built-in parallel testing            |
 | echo system                               | no echo system                       |
+
+# Date: 22-Sept-2026
+
+create venv - `python -m venv venv`
+activate venv - `. venv/Scripts/activate`
+upgrade pip - `python -m pip install --upgrade pip`
+install package - `python -m pip install package_name`
+
+for playwright:
+download playwright - `python -m pip install playwright`
+install playwright - `python -m playwright install`
+
+# Date: 22-Sept-2026
+
+### **Browser**
+
+A browser represents a running browser process connect by `playwrightContextManager` through playwright core API.
+
+`browser = p.chromium.launch()`
+
+### **Browser Context**
+
+&rarr; Browser context is an independent isolated browser session.
+
+&rarr; It behaves similarly to an incognito window.
+
+&rarr; Each context has separate cookies, localstorage, session storage, authentication state, cache, permissions, geolocations, local timezone.
+
+### **Page**
+
+&rarr; A page represents one browser tab or pop window.
+
+&rarr; A page is used to open urls, find elements, enter data, handling the browser actions(click, scroll, dropdown(selective and autoselective), alert popup, window handle, iframe, shadow DOM, screenshot, monitoring network calls, validate application behaviour).
+
+### **page.goto()**
+
+&rarr; It opens the browser with the help of url.
+
+&rarr; We have to close the browser after finish the task with `browser.close()`
+
+### **Locator**
+
+&rarr; Locator is a absolute value of web browser location and they have a specific address and path
+
+Playwright has 8 type of locators
+
+1. getByRole()
+2. getByLabel()
+3. getByPlaceholder()
+4. getByText()
+5. getByTestId()
+6. CSS Selector
+7. XPath Selector
+8. ID Selector
