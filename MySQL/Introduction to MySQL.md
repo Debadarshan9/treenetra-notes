@@ -2,19 +2,19 @@
 
 ### **What is DATA?**
 
-Data means a collection of values of information that can be processed to get meaningfull information.
+Data means a collection of values of information that can be processed to get meaningful information.
 
 ### **What is Database?**
 
-A database is an organised collection of data that allows us to store, manage, retrive and update information efficiently.
+A database is an organized collection of data that allows us to store, manage, retrieve and update information efficiently.
 
-**_Note: Instead of maintaning thousands of methods in notebooks we can store the data in database._**
+**_Note: Instead of maintaining thousands of methods in notebooks we can store the data in database._**
 
 ### **What is DBMS?**
 
 &rarr; DBMS is known as `Database Management System`.
 
-&rarr; It is a software that allows us to get, store, manage, retrive, update and delete data from a database.
+&rarr; It is a software that allows us to get, store, manage, retrieve, update and delete data from a database.
 
 ### **Database VS DBMS**
 
@@ -36,17 +36,17 @@ A database is an organised collection of data that allows us to store, manage, r
 
 &rarr; It doesn't store the data in table format but it store the data as `documents` or `key-value pairs`.
 
-&rarr; Ex: MonogoDB
+&rarr; Ex: MongoDB
 
 ### **What is SQL?**
 
-&rarr; It is knowns as Structured Query Language.
+&rarr; It is knowns as `Structured Query Language`.
 
-&rarr; It is a language used to communicate in relational databases.
+&rarr; It is a language used to communicate in `relational databases`.
 
 ### **What is datatype**
 
-&rarr; A datatype defines what kind of value a variable or databse column can store.
+&rarr; A datatype defines what kind of value a variable or database column can store.
 
 **1. Numeric Datatype**
 
@@ -67,35 +67,35 @@ A database is an organised collection of data that allows us to store, manage, r
 | Fixed length                 | Variable length                 |
 | Always reserve define length | Uses space based on actual data |
 | Best for fixed length values | Best for variable length values |
-| Ex: pincode, county code     | Ex: Name, addresss, email       |
+| Ex: pin code, county code    | Ex: Name, address, email        |
 
 ### **Date & time datatype**
 
 &rarr; It is used to store data & time.
 
-&rarr; `date`, `time`, `datetime`, `timestap`, `year`
+&rarr; `date`, `time`, `datetime`, `timestamp`, `year`
 
 # Date: 13-August-2026
 
 ### **DDL Command**
 
-&rarr; It is known as Data Definition Language.
+&rarr; It is known as `Data Definition Language`.
 
-&rarr; It defines or changes the structure of database objects.
+&rarr; It defines or changes the `structure` of database objects.
 
 &rarr; `create`, `alter`, `drop`, `truncate` are some DDl commands.
 
 ### **Drop vs Truncate**
 
-| DROP                                            | TRUNCATE                                                         |
-| ----------------------------------------------- | ---------------------------------------------------------------- |
-| It removes the entire table (structuare + data) | It removes all rows from the table but keeps the table structure |
-| Table structure deleted                         | Table structure remains same                                     |
-| It is slower than truncate                      | It is fast                                                       |
+| DROP                                           | TRUNCATE                                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------- |
+| It removes the entire table (structure + data) | It removes all rows from the table but keeps the table structure |
+| Table structure deleted                        | Table structure remains same                                     |
+| It is slower than truncate                     | It is fast                                                       |
 
 ### **DML Command**
 
-&rarr; It is known as Data Manipulation Language.
+&rarr; It is known as `Data Manipulation Language`.
 
 &rarr; It deals with the data of the table.
 
@@ -108,12 +108,12 @@ A database is an organised collection of data that allows us to store, manage, r
 | Drop is a DDL command          | Truncate is a DDL command    | Delete is DML command        |
 | All data deleted               | All data deleted             | Specific data deleted        |
 | It removes the table structure | It does not remove structure | Is does not remove structure |
-| Where clause is not used       | Where caluse is not used     | Where clause is used used    |
+| Where clause is not used       | Where clause is not used     | Where clause is used used    |
 | Rollback is not possible       | Rollback is not possible     | Rollback is possible         |
 
 ### **DCL Command**
 
-&rarr; It is known as Data Control Language.
+&rarr; It is known as `Data Control Language`.
 
 &rarr; It controls user access and permissions.
 
@@ -121,15 +121,15 @@ A database is an organised collection of data that allows us to store, manage, r
 
 ### **TCL Command**
 
-&rarr; It is known as Transaction Control Language.
+&rarr; It is known as `Transaction Control Language`.
 
 &rarr; It is used to manage the changes made by the DML commands.
 
-&rarr; commit, rollback, savepoint,
+&rarr; `commit`, `rollback`, `savepoint` are some TCL commands.
 
 **commit**
 
-Permanetly save the changes made in the current transaction.
+Permanently save the changes made in the current transaction.
 
 **rollback**
 
@@ -159,9 +159,9 @@ select * from student;
 
 -- DML Command (INSERT)
 insert into student values
-(1,"Dibya",27,'Python'),
-(2,"Rkesh",26,'SQL'),
-(3,"Ajay",30,'AI');
+(1,"Bharat",27,'Python'),
+(2,"Ram",26,'SQL'),
+(3,"Krishna",30,'AI');
 
 -- DML Command (UPDATE)
 set sql_safe_updates=0;
@@ -218,9 +218,9 @@ drop table student;
 
 **6. DEFAULT**
 
-&rarr; It automatically provies a default value when no value is supplied during insertion.
+&rarr; It automatically provides a default value when no value is supplied during insertion.
 
-| PRIAMRY KEY                                | UNIQUE                                        | FOREIGN KEY                           |
+| PRIMARY KEY                                | UNIQUE                                        | FOREIGN KEY                           |
 | ------------------------------------------ | --------------------------------------------- | ------------------------------------- |
 | Uniquely identifies each record in a table | Ensures values in a column are not duplicated | Creates relationship between 2 tables |
 | Identifies a row                           | Prevents duplicate data                       | Maintains relationship between tables |
@@ -282,7 +282,7 @@ emp_id int primary key,
 emp_name varchar(30),
 department varchar(20),
 salary int,
-bonous int
+bonus int
 );
 
 insert into test_emp values
@@ -306,8 +306,8 @@ select count(distinct department) from test_emp;
 -- Find the total salary of all employee
 select sum(salary) from test_emp;
 
--- Find the total bonous
-select sum(bonous) from test_emp;
+-- Find the total bonus
+select sum(bonus) from test_emp;
 
 -- Find the average salary
 select avg(salary) from test_emp;
@@ -321,17 +321,17 @@ select min(salary) from test_emp;
 
 # Date: 19-August-2026
 
-### **What is caluse ?**
+### **What is clause ?**
 
-A clause is a part of sql statement that tells the databse what data we want and how we want to filter, group, sort or limit it.
+A clause is a part of sql statement that tells the database what data we want and how we want to filter, group, sort or limit it.
 
 **1. SELECT**
 
-It sprecifies which columns or data we want to retrive.
+It specifies which columns or data we want to retrieve.
 
 **2. FROM**
 
-It specifies which table we want to retreive data from.
+It specifies which table we want to retrieve data from.
 
 **3. WHERE**
 
@@ -363,7 +363,7 @@ It restricts the no. of rows return.
 
 **10. OFFSET**
 
-It tells sql how many rows to skip before returing the result.
+It tells sql how many rows to skip before returning the result.
 
 | WHERE                                             | HAVING                         |
 | ------------------------------------------------- | ------------------------------ |
@@ -445,17 +445,17 @@ Operators are symbols or keywords used to perform calculations or compare or fil
 
 **NOT** &rarr; Reverse the condition
 
-#### **3. Comparision Operator**
+#### **3. Comparison Operator**
 
-&rarr; Used to compare 2 values and return a true or false condition.
+&rarr; Used to compare 2 values and return a true or false based on the condition.
 
 &rarr; Ex: =, != or <>, <,>,<=,>=
 
-#### **4. Special Opearotor**
+#### **4. Special Operator**
 
 These are commonly used for filtering specific range, patterns or list of values.
 
-**BETWEEN** &rarr; It checks whether the value falls within a specifed range, including the boundary value.
+**BETWEEN** &rarr; It checks whether the value falls within a specified range, including the boundary value.
 
 **LIKE** &rarr; It is used to search for a specific pattern in the text.
 
@@ -556,9 +556,9 @@ CROSS join table t2;
 
 **SELF JOIN**
 
-&rarr; Self Join is when a table is joind with `itself`.
+&rarr; Self Join is when a table is joined with `itself`.
 
-&rarr; It is usefull when records in the same table have a `relationship` with each other.
+&rarr; It is useful when records in the same table have a `relationship` with each other.
 
 **Syntax**
 
@@ -593,15 +593,15 @@ where salary > (select avg(salary) from empl);
 
 &rarr; It returns more than one row or value to outer query
 
-&rarr; We use operaors such as `in`, `any`, `all`
+&rarr; We use operators such as `in`, `any`, `all`
 
-**IN** &rarr; It checks wheather the value matches any value in the returned list.
+**IN** &rarr; It checks weather the value matches any value in the returned list.
 
-**ANY** &rarr; At least one values reuturned by the subquery.
+**ANY** &rarr; At least one values returned by the subquery.
 
-**ALL** &rarr; Every value reuturned by the subquery.
+**ALL** &rarr; Every value returned by the subquery.
 
-**3. Corelated Subquery**
+**3. Co-related Subquery**
 
 &rarr; It is a subquery that depends on the current row of outer query.
 
@@ -646,10 +646,10 @@ where e.salary > (select avg(e2.salary) from empl e2 where e2.dept_id = e.dept_i
 | Join                             | Subquery                                 |
 | -------------------------------- | ---------------------------------------- |
 | It combines from multiple tables | Query inside another query               |
-| Retrive related data             | Use result of one query in another query |
+| Retrieve related data            | Use result of one query in another query |
 | It is faster                     | It is slower                             |
 
-**_NOTE: Join is faster than subquery specially for retrive related data_**
+**_NOTE: Join is faster than subquery specially for retrieve related data_**
 
 ### **SET Operations**
 
@@ -727,19 +727,19 @@ where city not in (select city from customer);
 
 ### **over()**
 
-&rarr; It perfroms a calculation across a set of related rows without combining those rows into one row.
+&rarr; It performs a calculation across a set of related rows without combining those rows into one row.
 
 ### **row_number()**
 
-&rarr; It assignes a unique sequential number to each row specified order.
+&rarr; It assigns a unique sequential number to each row specified order.
 
 ### **rank()**
 
-&rarr; It assignes the same rank to rows having the same value but skips the next rank after a tie.
+&rarr; It assigns the same rank to rows having the same value but skips the next rank after a tie.
 
 ### **dense_rank()**
 
-&rarr; It also gives the same rank to tied values but doesn.t skip the next rank.
+&rarr; It also gives the same rank to tied values but doesn't skip the next rank.
 
 ```
 a - 1   1   1
@@ -751,11 +751,11 @@ e - 5   5   3
 
 ### **lag()**
 
-&rarr; It retrives a value from a previous row.
+&rarr; It retrieves a value from a previous row.
 
 ### **lead()**
 
-&rarr; It retrives a value from a next row.
+&rarr; It retrieves a value from a next row.
 
 **_Note: Aggregate functions can be used as window function by adding over method._**
 

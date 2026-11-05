@@ -4,9 +4,9 @@
 
 ### **What is class**
 
-&rarr; In python everything is an object. To create object we requires some model or plan or buleprint which is nothing but `class`
+&rarr; In python everything is an object. To create object we requires some model or plan or blue print which is nothing but `class`
 
-&rarr; We can write a class to represent `properties (atribute)` and `actions (behaviour)` of object
+&rarr; We can write a class to represent `properties (attribute)` and `actions (behavior)` of object
 
 &rarr; Properties can be represented by `variables` and action can be represented by `methods`
 
@@ -23,9 +23,9 @@ class ClassName:
 
 ### **What is object**
 
-&rarr;Physical existance of a class is nothing but object
+&rarr; Physical existence of a class is nothing but object
 
-&rarr;We can create any number of object for a class
+&rarr; We can create any number of object for a class
 
 **Syntax**
 
@@ -35,9 +35,11 @@ class ClassName:
 variable = ClassName() # This is the object
 ```
 
+### **Variable**
+
 There are 3 types of variables in python (oops)
 
-1. Instance variable (Obect level variable)
+1. Instance variable (Object level variable)
 2. Static variable (Class level variable)
 3. Local variable (Method level variable)
 
@@ -45,19 +47,19 @@ There are 3 types of variables in python (oops)
 
 There are 3 types of method
 
-1. Instance method
-2. Class Mmethod
-3. Static method
+1. Instance Method
+2. Class Method
+3. Static Method
 
 # Date: 3-August-2026
 
 ### **self variable**
 
-&rarr; Self is the default variable which is always pointing to the `current object`
+&rarr; `self` is the default variable which is always pointing to the `current object`
 
-&rarr; By using self we can access `instance variable` and `instance method` of object
+&rarr; By using `self` we can access `instance variable` and `instance method` of object
 
-&rarr; Self should be `1st parameter` inside the constructer
+&rarr; `self` should be `1st parameter` inside the constructor
 
 **Syntax**
 
@@ -70,8 +72,8 @@ def __init__(self):
 
 ```python
 class Student:
-    def __init__(self,rollno,name,dept):
-        self.rollno = rollno
+    def __init__(self,rollNo,name,dept):
+        self.rollNo = rollNo
 
 s1 = Student(111,"Debadarshan","CSE")
 s1 = Student(48,"Kuna","ECE")
@@ -85,13 +87,13 @@ s1 = Student(48,"Kuna","ECE")
 
 &rarr; Constructor will be executed automatically at the time of object creation
 
-&rarr; The main purpose of constructor is to `declare` and `initialise instance variable`
+&rarr; The main purpose of constructor is to `declare` and `initialize instance variable`
 
 &rarr; Per object constructor will be executed only once
 
-&rarr; Constructor can take at leat one parameter or argument i.e `self`
+&rarr; Constructor can take at least one parameter or argument i.e `self`
 
-&rarr; Construcotr is optional and if we are not providing any constructor then python will provide default constructor
+&rarr; Constructor is optional and if we are not providing any constructor then python will provide default constructor
 
 ### **Method vs constructor**
 
@@ -100,20 +102,20 @@ s1 = Student(48,"Kuna","ECE")
 | Name of Method can be any name                 | Constructor name should be always `__init__(self)`                        |
 | Method will be executed if we call that method | Constructor will be executed automatically at the time of object creation |
 | Per object method can be called n no. of times | Per object constructor will be executed only once                         |
-| Inside method we can awrite business logic     | Inside constructor we have to declare and initialise instance variables   |
+| Inside method we can write business logic      | Inside constructor we have to declare and initialize instance variables   |
 
 **Example**
 
 ```python
 class Student:
-    def __init__(self, rollno, name, dept):
-        self.rollno = rollno # Instance variable
+    def __init__(self, rollNo, name, dept):
+        self.rollNo = rollNo # Instance variable
         self.name = name
         self.dept = dept
 
     def display(self): # Instance method (if the 1st parameter is self)
         print(f"Name: {self.name}")
-        print(f"Roll No: {self.rollno}")
+        print(f"Roll No: {self.rollNo}")
         print(f"Department: {self.dept}")
 
 
@@ -159,7 +161,7 @@ s1.city = "Puri"
 
 ### **How to access instance variable ?**
 
-&rarr; We can access instance variables within the class and within the `instance method` by using `self` varibale and outside of the class by using `object reference`.
+&rarr; We can access instance variables within the class and within the `instance method` by using `self` variable and outside of the class by using `object reference`.
 
 ```python
 def __init__(self,name,age):
@@ -207,14 +209,14 @@ class Test:
         self.y = y
 
 t1 = Test(20)
-print(t1.x) # 10, we can access static variable by using object referenece
+print(t1.x) # 10, we can access static variable by using object reference
 print(Test.x) # 10, we can access static variable by using class name
 t2 = Test(30)
-print(t2.x) # 10, we can access static variable by using object referenece
+print(t2.x) # 10, we can access static variable by using object reference
 print(Test.x) # 10, we can access static variable by using class name
 ```
 
-### **Various cases to delcare static variable**
+### **Various cases to declare static variable**
 
 &rarr; In general we can declare static variable `within the class` directly but `outside of any method`.
 
@@ -279,7 +281,7 @@ def cm(cls):
     print(Test.x) # 10
 ```
 
-&rarr; Inside the staic method by using `class name`
+&rarr; Inside the static method by using `class name`
 
 ```python
 @staticmethod
@@ -299,7 +301,7 @@ print(Test.x) # 10
 
 &rarr; Anywhere either within the class or outside of class we can modify by using `class name`
 
-&rarr; But inside the classmethod by using `class variable`
+&rarr; But inside the `classmethod` by using `class variable`
 
 ```python
 @classmethod
@@ -327,7 +329,7 @@ del cls.variable_name
 
 ### **Local Variable**
 
-&rarr; Sometimes to meet temprary requirement of programer we can declare variables inside a method directly. Such type of variables are called local variable or temporary variable.
+&rarr; Sometimes to meet temporary requirement of programer we can declare variables inside a method directly. Such type of variables are called local variable or temporary variable.
 
 &rarr; Local variable will be created at the time of `method execution` and destroyed once method completes.
 
@@ -347,7 +349,7 @@ def func1(self):
 
 &rarr; By using self variable inside the methods we can able to access instance variable.
 
-&rarr; Within the class we can call instance method by using `self` variable and from outside of the class we can call by using `object referenece`.
+&rarr; Within the class we can call instance method by using `self` variable and from outside of the class we can call by using `object reference`.
 
 ```python
 class Test:
@@ -396,9 +398,9 @@ def setVariable(self,variable):
 
 ### **Getter**
 
-&rarr; Getter method can be used to get value of the instace variable
+&rarr; Getter method can be used to get value of the instance variable
 
-&rarr; Getter method is also known as `acessor method`
+&rarr; Getter method is also known as `accessor method`
 
 **Syntax**
 
@@ -439,11 +441,11 @@ for i in range(n):
 
 &rarr; Inside method implementation if we are using only `class variable (static variable)`, then such type of methods we should declare as class method.
 
-&rarr; We can declare class method explicitily by using `@classmethod` decorator.
+&rarr; We can declare class method explicitly by using `@classmethod` decorator.
 
 &rarr; For class method we should provide `cls` variable at the time of declaration.
 
-&rarr; We can call class method by using `class name` or `object referenece`
+&rarr; We can call class method by using `class name` or `object reference`
 
 ```python
 class Animal:
@@ -468,7 +470,7 @@ Animal.walk("Tiger")
 
 &rarr; Here we don't provide `self` or `cls` argument at the time of declaration.
 
-&rarr; We can declare static method explicitily by using `@staticmethod` decorator.
+&rarr; We can declare static method explicitly by using `@staticmethod` decorator.
 
 &rarr; We can access static method by using `class name` or `object reference`
 
@@ -506,7 +508,7 @@ class Outer:
 
     class Inner:
         def __init__(self):
-            print("Inner clas constructor")
+            print("Inner class constructor")
         def m1(self):
             print("Inner class method")
 
@@ -534,7 +536,7 @@ In Oops concept there are 4 pillars
 
 &rarr; **Validation:** You can validate data before settings.
 
-&rarr; **Flexibility:** Interal implementation can change without affecting external code.
+&rarr; **Flexibility:** Internal implementation can change without affecting external code.
 
 &rarr; **Control:** You have full control over how data is accessed and modified.
 
@@ -564,7 +566,7 @@ print(p1.__age) # Error: Person has no attribute "__age"
 
 ### **Protected**
 
-&rarr; Protecetd may lose
+&rarr; Protected may lose
 
 &rarr; There are not strictly private but should be treated as internal
 
@@ -614,24 +616,24 @@ class BankAccount:
     def __update_balance(self, amount):
         self.balance += amount
 
-    def deposite(self, amount):
+    def deposit(self, amount):
         if amount > 0:
             self.__update_balance(amount)
             self._show_balance()
         else:
-            print("Invalid Deposite Amount")
+            print("Invalid Deposit Amount")
 
 
 bank1 = BankAccount()
-bank1.deposite(2000) # Balance is: 3000
+bank1.deposit(2000) # Balance is: 3000
 ```
 
 ### **Protected vs Private**
 
-| Proteted                                                  | Private                                   |
+| Protected                                                 | Private                                   |
 | --------------------------------------------------------- | ----------------------------------------- |
 | It is written by single underscore (`_`)                  | It is written by double underscore (`__`) |
-| It means internal or protected member                     | It is totally provate member              |
+| It means internal or protected member                     | It is totally private member              |
 | In the same class we can access                           | In the same class we can access           |
 | In child class it can be accessible directly              | It can't be accessible directly           |
 | Outside the class it technically accessible               | Outside the class it can't be accessible  |
@@ -674,7 +676,7 @@ d1.sound()
 
 &rarr; Code reusability
 
-&rarr; Real world hierachy
+&rarr; Real world hierarchy
 
 &rarr; Avoid code duplication
 
@@ -686,7 +688,7 @@ d1.sound()
 
 ### **1. Single Inheritance**
 
-&rarr; Single inheritance is a type of inheritance where one child class inherts properties and methods from one parent class.
+&rarr; Single inheritance is a type of inheritance where one child class inherits properties and methods from one parent class.
 
 **Example**
 
@@ -697,7 +699,7 @@ class Car:
         self.year = year
 
     def display(self):
-        print(f"Car {self.model} is lanunched in {self.year}")
+        print(f"Car {self.model} is launched in {self.year}")
 
 class SportsCar(Car):
     def show(self):
@@ -714,7 +716,7 @@ s.show() # It is a sports car
 
 ### **2. Multiple Inheritance**
 
-&rarr; Multiple inhertance is a type of inheritance where `one child class` inherts properties and methods from `two or more parent classes`.
+&rarr; Multiple inheritance is a type of inheritance where `one child class` inherits properties and methods from `two or more parent classes`.
 
 ```python
 class Test1:
@@ -731,13 +733,13 @@ class Test3(Test1, Test2):
 
 t1 = Test3()
 t1.show() # Test1 method is inherited
-t1.display() # test2 method is inherted
+t1.display() # test2 method is inherited
 t1.info()
 ```
 
-### **3. Multi level Inhertance**
+### **3. Multi level Inheritance**
 
-&rarr; Multi level inhertance is a type of inhertance where a class inherited from another derived class forming an inheritance chain.
+&rarr; Multi level inheritance is a type of inheritance where a class inherited from another derived class forming an inheritance chain.
 
 ```python
 class GrandParent:
@@ -753,14 +755,14 @@ class Child(Parent):
         print("Have car")
 
 c1 = Child()
-c1.land() # This method is inherted from Grandparent
-c1.house() # This method is inherted from Parent
+c1.land() # This method is inherited from Grandparent
+c1.house() # This method is inherited from Parent
 c1.land()
 ```
 
 ### **4. Hierarchy Inheritance**
 
-&rarr; Hierarchical inhertance is a type of inhertance where multiple child class inherits from the same parent class.
+&rarr; Hierarchical inheritance is a type of inheritance where multiple child class inherits from the same parent class.
 
 ```python
 class Vehicle:
@@ -785,9 +787,9 @@ c1.start() # Car class inherits from vehicle
 c1.drive()
 ```
 
-### **5. Hybrid Inhertance**
+### **5. Hybrid Inheritance**
 
-&rarr; Hybrid inhertance is a type of inhertance where two or more type of inhertance are combined in a single class.
+&rarr; Hybrid inheritance is a type of inheritance where two or more type of inheritance are combined in a single class.
 
 ```python
 class A:
@@ -833,7 +835,7 @@ class Child(Parent):
         print("Child class constructor")
 
     def display(self):
-        print("Child clas method")
+        print("Child class method")
 
 c = Child() # First parent class constructor will run then child class constructor will run
 c.show()
@@ -880,7 +882,7 @@ print(D.mro()) # D --> B --> C --> A
 
 ### **Method Overriding**
 
-&rarr; Method overriding occures when a child class provids its own implementation of a method that is already defined in its parent class.
+&rarr; Method overriding occurs when a child class provides its own implementation of a method that is already defined in its parent class.
 
 &rarr; In happens when same method exists in parent class and child class, but the child class provides its own implementation of that method.
 
@@ -929,7 +931,7 @@ print(f.calculate_bill(500, 50, 100)) # 450
 &rarr; Python provides abstraction mainly using the `ABC` module.
 
 ```python
-from abc import ABC,abstarct method
+from abc import ABC, abstract method
 ```
 
 &rarr; We can create an abstract class using ABC and define abstract method using decorator `@abstractmethod`
@@ -999,13 +1001,13 @@ class CardPayment(Payment):
   def pay(self, amount):
     print(f"Payment of {amount} done through Card")
   def receipt(self):
-    print(f"cardpayment receipt generated ")
+    print(f"card payment receipt generated ")
 
 
-phonepay=UPIPayment()
-phonepay.pay(5000)
-phonepay.receipt()
-sbicard=CardPayment()
-sbicard.pay(10000)
-sbicard.receipt()
+phone_pay=UPIPayment()
+phone_pay.pay(5000)
+phone_pay.receipt()
+sbi_card=CardPayment()
+sbi_card.pay(10000)
+sbi_card.receipt()
 ```

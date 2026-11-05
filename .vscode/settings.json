@@ -1,0 +1,19 @@
+{
+    "cSpell.ignoreWords": [
+        "pytest",
+        "tagname"
+    ],
+    "cSpell.words": [
+        "BBSR",
+        "clickability",
+        "Debadarshan",
+        "Dicom",
+        "Ekita",
+        "FHIR",
+        "Interactable",
+        "Medi",
+        "pydicom",
+        "savepoint",
+        "varchar"
+    ]
+}
