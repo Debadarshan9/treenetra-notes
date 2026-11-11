@@ -459,3 +459,134 @@ It shows claim processing and payment responsibility
 #### **8. Settlement**
 
 Payment made against an approved claim
+
+# Date: 11-Nov-2026
+
+## **1. MediAssist AI - Intelligent Healthcare Patient Care Management**
+
+Manage a patient's complete hospital journey
+
+Registration, Appointment, Consultation, Treatment, Discharge, Follow-up
+
+### **AI Agents :-**
+
+Patient Registration
+
+Appointment Registration
+
+Clinical Summary Agent
+
+Follow-up Agent
+
+### **Agent Workflow**
+
+Patient Request &rarr; Patient Registration Agent &rarr; Appointment Agent &rarr; EHR Agent &rarr; Clinical Summary Agent &rarr; Doctor Review &rarr; Follow-up Agent
+
+### **QA Validation**
+
+UI Automation with Playwright using python and in pytest framework
+
+CRUD APIs:- REST API validation (postman, py req,playwright API-CONTEXT)
+
+FHIR validation:- API/JSON API validation
+
+SQL validation with help of SQL query
+
+RBAC :- Authentication (JWT, Oauth2.0)
+
+Agentic AI
+
+RAG Validation (Precision, Recall, Context Precision, Context Recall, P@K, R@K, MRR, Hit Rate)
+
+## **2. RadVision AI - Intelligent Radiology and Imaging Platform**
+
+Manage imaging order
+
+CT scan, MRI, X-ray, examination workflow
+
+Image retrieval (DICOM)
+
+Radiology Report
+
+Doctor Notification
+
+### **AI Agent :-**
+
+Image order agent
+
+DICOM retrieval agent
+
+Radiology report drafting agent
+
+Doc Notification agent
+
+### **Agent Workflow**
+
+Image Order &rarr; RIs &rarr; PACKS &rarr; DICOM retrieval agent &rarr; Imaging model / report draft &rarr; Radiology Approval &rarr; EHR update
+
+### **QA Validation**
+
+UI Automation with Playwright using python and in pytest framework
+
+CRUD APIs:- REST API validation (postman, py req,playwright API-CONTEXT)
+
+DICOM metadata - OCR
+
+APIs CRUD to store data in EHR
+
+RAG hallucination
+
+Tool accuracy testing
+
+LLM validation
+
+## **3. LabCare AI - Intelligent Laboratory Diagnostic System**
+
+Manage lab order (blood, store, urine, etc.)
+
+Specimen collection, after physical collection then it will update on application
+
+Barcode tracking
+
+Test result
+
+Report generation
+
+clinical alerts
+
+### **AI Agents:-**
+
+Lab order agent
+
+Sample tracking agent
+
+Result interpretation support agent (3 metrics)
+
+Critical alert agent
+
+### **Agentic Workflow**
+
+Doctor Lab Order &rarr; LIS &rarr; Sample tracking &rarr; Analyzer result agent &rarr; Result validation &rarr; AI agent explanation &rarr; Clinical review
+
+## **QA Validation**
+
+UI Automation with Playwright using python and in pytest framework
+
+CRUD APIs:- REST API validation (postman, py req,playwright API-CONTEXT)
+
+Sample mapping:- APIs
+
+Patient identity and validate LIS result and store in EHR
+
+FHIR Observation validation:- APIs validation
+status
+request body
+response json schema
+header
+authentication & authorization
+
+RAG hallucination
+
+tool accuracy testing
+
+LLM validation
